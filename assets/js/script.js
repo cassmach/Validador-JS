@@ -33,7 +33,18 @@ let B7Validator = {
                     }
                     break;
                     case 'min':
+                        if(input.value.length < rDetails[1]) {
+                            return 'Campo tem que ter pelo menos '+rDetails+' caracters'
+                        }
+                    break;
 
+                    case 'email':
+                        if(input.value != '') {
+                            let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                            if(!regex.test(input.value.toLowerCase())) {
+                                return 'E-mail digitado não é valido!'
+                            }
+                        }
                     break;
                 }
             }
